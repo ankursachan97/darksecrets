@@ -1,0 +1,157 @@
+/* 🌌 Full Overlay Container */
+/* -------------------- यह नया कोड जोड़ें -------------------- */
+
+/* यह सुनिश्चित करता है कि हमारा मुख्य कंटेनर पूरी स्क्रीन ले */
+.landing-container {
+  position: relative; /* यह z-index के लिए जरूरी है */
+  width: 100%;
+  height: 100vh; /* vh = viewport height */
+  background: #07060a; /* बैकग्राउंड कलर यहाँ सेट करें */
+}
+
+/* यह Canvas को कंटेनर के अंदर फैलाता है */
+.landing-container > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* ----------------------------------------------------------- */
+
+/* Full Overlay Container (आपका मौजूदा कोड) */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* इसे कैनवास के ऊपर रखें */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  pointer-events: none;
+}
+
+/* ... आपकी बाकी की CSS फाइल वैसी ही रहेगी ... */
+
+/* ✨ Top Section */
+.overlay-top {
+  text-align: center;
+  margin-top: 1rem;
+  pointer-events: auto;
+}
+
+.dark-title {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 2px;
+  color: #fff;
+  animation: pulse-glow 2.5s infinite alternate;
+}
+
+@keyframes pulse-glow {
+  from {
+    text-shadow: 0 0 8px #ff6b00, 0 0 16px #ff8533;
+  }
+  to {
+    text-shadow: 0 0 16px #ff6b00, 0 0 28px #ff8533, 0 0 42px #ffaa80;
+  }
+}
+
+.tagline {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #ffb366;
+  text-shadow: 0 0 6px #ff6b00;
+}
+
+/* ✨ Bottom Section */
+.overlay-bottom {
+  pointer-events: auto;
+  margin-bottom: 1rem;
+}
+
+/* 🔥 Secret Input Box */
+.box {
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid #ff6b00;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-right: 3rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 12px rgba(255, 107, 0, 0.5);
+  transition: transform 0.25s;
+}
+
+.box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 18px rgba(255, 107, 0, 0.7);
+}
+
+.box textarea {
+  width: 70%;
+  height: 70px;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: none;
+  resize: none;
+  background: rgba(20, 20, 20, 0.9);
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  box-shadow: inset 0 0 8px rgba(255, 107, 0, 0.4);
+}
+
+/* 🟨 Golden Button Glow */
+.box button {
+  margin-top: 0.8rem;
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(to bottom, #d6b447, #b8860b, #d6b447);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px rgba(214, 180, 71, 0.7);
+}
+
+.box button:hover {
+  background: linear-gradient(to bottom, #e5c963, #c99d1d, #e5c963);
+  transform: scale(1.05);
+  box-shadow: 0 0 16px rgba(255, 215, 0, 0.9);
+}
+
+/* 💬 Saved Feed */
+.feed {
+  max-height: 220px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.secret {
+  background: rgba(255, 107, 0, 0.08);
+  border-left: 3px solid #ff6b00;
+  padding: 0.7rem;
+  margin: 0.4rem 0;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 0.9rem;
+  color: #ddd;
+  opacity: 0;
+  animation: fadeIn 0.6s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
